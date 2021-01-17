@@ -1,0 +1,88 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    
+    background-color: white;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 0.09vw 0.08vw rgba(0, 0, 0, 0.25);
+}
+
+.playerOne
+{
+    background-color: #69b0b2;
+    height: 100%;
+    text-align: center;
+    color: #e1e1e1;
+    padding: 10%;
+    
+
+    
+}
+.playerOne h1
+{
+    font-weight: 700;
+    font-size: 4.5vw;
+}
+
+
+.infoPanel
+{
+    
+    padding: 10%;
+    padding-top: 5%;
+    height: 100%;
+    background-color: #e1e1e1;
+    text-align: center;
+    font-size: 1vw;
+    
+}
+.barss
+{
+    margin-top: auto;
+    margin-top: 9.8vh;
+    bottom: 0;
+}
+
+.infoPanel p
+{
+    
+    font-size: 2vw;
+    text-align: center;
+    
+}
+.infoPanel h1
+{
+    
+    font-weight: 600;
+    font-style: italic;
+    font-size: 4vw;
+}
+.par1
+{
+    color: #509393;
+    
+}
+.par2
+{
+    color: #a86047;
+}
+.playerTwo
+{
+    height: 100%;
+    background-color: #d08362;
+    text-align: center;
+    color: #e1e1e1;
+    padding: 10%;
+}
+.playerTwo h1
+{
+    font-weight: 700;
+    font-size: 4.5vw;
+}
+.col
+{
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
