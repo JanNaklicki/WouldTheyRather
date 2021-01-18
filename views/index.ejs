@@ -60,6 +60,7 @@
                     <div class="col">
                       
                         <button id="post-btn">Upvote</button>
+                        <div id="serD" style="font-size: 5em;"></div>
 
                    
                     </div>
@@ -126,7 +127,7 @@
   
         button.addEventListener('click', async _ => {
           try {     
-            const response = await fetch('http://127.0.0.1:8080/serial', {
+            const response = await fetch('http://127.0.0.1:3000/serial', {
               method: 'post',
               body: {
                 // Your body
@@ -139,5 +140,23 @@
         });
         </script>
     
+
+    <script src="javascripts/socket.io.js"></script>
+    <script>
+        var socket = io();
+      
+        var serData = document.getElementById('serD');
+        var form = document.getElementById('form');
+        var input = document.getElementById('input');
+      
+      
+        socket.on('serialD', function(msg) {
+
+          serData.textContent = msg;
+          
+        });
+      </script>
+
+
   </body>
 </html>
