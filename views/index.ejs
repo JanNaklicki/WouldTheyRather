@@ -11,37 +11,29 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <title>Hello, world!</title>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
   <body>
     
     <div class="container-fluid">
 
       <div class="row">
+       
+       
+       
+       
         <div class="col">
           <div class="playerOne">
             <h1 >Player One</h1>
-              <img src="images/p1.svg" alt="">
-            <div class="row barss">
-              <div class="col"></div>
-              <div class="col">
-                <div class="progress" style="background-color:#509393">
-                  <div class="bar shadow indeterminate-60 overlap"></div>
-                </div>  
-              </div>
-
-              <div class="col">
-                
-              <div class="progress" style="background-color:#509393">
-                <div class="bar shadow indeterminate-60 overlap"></div>
-              </div>
-              
-              </div>
-              <div class="col"></div>
-          </div>
-          
-
+            <img src="images/p1.svg" alt="">
+            <div id="p1Pick"></div>
           </div>
         </div>
         
+      
+      
+    
+  
+
         <div class="col">
             <div class="infoPanel">
                 <h1>
@@ -60,7 +52,7 @@
                     <div class="col">
                       
                         <button id="post-btn">Upvote</button>
-                        <div id="serD" style="font-size: 5em;"></div>
+                        <div  style="font-size: 5em; "></div>
 
                    
                     </div>
@@ -84,16 +76,14 @@
               <div class="row barss">
                 <div class="col"></div>
                 <div class="col">
-                  <div class="progress" style="background-color:#a86047">
-                    <div class="bar shadow indeterminate-60 overlap"></div>
+                  <div id="p2Pick" style="background-color:#a86047">
+                    
                   </div>  
                 </div>
   
-                <div class="col">
+                
                   
-                <div class="progress" style="background-color:#a86047">
-                  <div class="bar shadow indeterminate-60 overlap"></div>
-                </div>
+            
                 
                 </div>
                 <div class="col"></div>
@@ -102,7 +92,9 @@
             
         </div>
       </div>
-    </div>    
+    </div>
+  </div>      </div>
+</div>    
 
 
 
@@ -146,12 +138,21 @@
         var socket = io();
       
         var serData = document.getElementById('serD');
+        var playerOne = document.getElementById('p1Pick')
+        var playerTwo = document.getElementById('p2Pick')
         var form = document.getElementById('form');
         var input = document.getElementById('input');
-      
+        
       
         socket.on('serialD', function(msg) {
 
+          var a = String(msg);
+          var c = a.split(':');
+          var one = c[0];
+          var two = c[1];
+          
+          playerTwo.textContent = one;
+          playerOne.textContent = two;
           serData.textContent = msg;
           
         });

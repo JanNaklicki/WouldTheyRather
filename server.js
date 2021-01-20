@@ -28,7 +28,7 @@ app.post('/', function (req, res) {
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-const serialport = new SerialPort('COM3')
+const serialport = new SerialPort('COM4')
 
 
 
@@ -59,6 +59,12 @@ app.post('/serial',function(req,res){
     parser.on('data',function(data){
         
         io.emit('serialD',data);
+
+
+        
+
+        
+
 
         console.log(data);
 
