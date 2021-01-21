@@ -45,7 +45,9 @@ app.get('/', function(req, res) {
         { name: 'Tux', organization: "Linux", birth_year: 1996},
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];
-    var tagline = "No programming concept is complete without a cute animal mascot.";
+
+
+    var tagline = "";
 
     res.render('index', {
         mascots: mascots,
@@ -60,13 +62,14 @@ app.post('/serial',function(req,res){
         
         io.emit('serialD',data);
 
-
         
-
         
-
-
+        
         console.log(data);
+
+
+
+
 
     });
     console.log('works!');

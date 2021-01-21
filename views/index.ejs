@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/bars.css">
     <link rel="stylesheet" href="stylesheets/style.css">
-    <title>Hello, world!</title>
+    <title>Would They Rather</title>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body>
@@ -17,23 +17,16 @@
     <div class="container-fluid">
 
       <div class="row">
-       
-       
-       
-       
+        
         <div class="col">
-          <div class="playerOne">
+          <div class="playerOne"  style="font-size: 5vw;">
             <h1 >Player One</h1>
-            <img src="images/p1.svg" alt="">
-            <div id="p1Pick"></div>
+            <img src="images/p1male.svg" alt="">
+            <div id="p1Pick" ></div>
           </div>
         </div>
         
       
-      
-    
-  
-
         <div class="col">
             <div class="infoPanel">
                 <h1>
@@ -52,9 +45,8 @@
                     <div class="col">
                       
                         <button id="post-btn">Upvote</button>
-                        <div  style="font-size: 5em; "></div>
-
-                   
+                        <div style="font-size: 5em; ">
+                        </div>
                     </div>
 
                     <div class="col">
@@ -70,9 +62,9 @@
         <div class="col">
             <div class="playerTwo">
               <h1 >Player Two</h1>
-              <svg viewBox="0 0 100 50" class="mt-5">
-                <circle cx="50" cy="25" r="25" />
-              </svg>
+              
+                <img src="images/p2female.svg" alt="">
+              
               <div class="row barss">
                 <div class="col"></div>
                 <div class="col">
@@ -88,13 +80,11 @@
                 </div>
                 <div class="col"></div>
             </div>
-            </div>
+        </div>
             
         </div>
       </div>
-    </div>
-  </div>      </div>
-</div>    
+  
 
 
 
@@ -103,16 +93,10 @@
 
 
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
     <script src="javascripts/bars.js"></script>
     <script>
       const button = document.getElementById('post-btn');
@@ -122,7 +106,7 @@
             const response = await fetch('http://127.0.0.1:3000/serial', {
               method: 'post',
               body: {
-                // Your body
+               
               }
             });
             console.log('Completed!', response);
@@ -135,6 +119,18 @@
 
     <script src="javascripts/socket.io.js"></script>
     <script>
+        
+        function mapValue(val, in_min, in_max, out_min, out_max)
+        {
+          return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+        }
+        function float2int (value) 
+        {
+          return value | 0;
+        }
+
+
+
         var socket = io();
       
         var serData = document.getElementById('serD');
@@ -150,9 +146,13 @@
           var c = a.split(':');
           var one = c[0];
           var two = c[1];
+          oneMapped = mapValue(one,0,1023,0,100);
+          twoMapped = mapValue(two,0,1023,0,100);
+          oneMapped = float2int(oneMapped)
+          twoMapped = float2int(twoMapped)
           
-          playerTwo.textContent = one;
-          playerOne.textContent = two;
+          playerTwo.textContent = oneMapped;
+          playerOne.textContent = twoMapped;
           serData.textContent = msg;
           
         });
