@@ -28,7 +28,7 @@ app.post('/', function (req, res) {
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-const serialport = new SerialPort('COM4')
+const serialport = new SerialPort('COM6')
 
 
 
