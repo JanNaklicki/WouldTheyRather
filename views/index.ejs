@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <title>Would They Rather</title>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
 </head>
 
 <body>
@@ -24,7 +27,7 @@
                 <div class="playerOne" style="font-size: 5vw;">
                     <h1>Player One</h1>
                     <img src="images/p1male.svg" alt="">
-                    <div id="p1Pick"></div>
+                    <div></div>
                     <div class="progress">
                         <div class="bar shadow WhiteStripes"></div>
                     </div>
@@ -52,6 +55,7 @@
                         <div class="col">
 
                             <button id="post-btn">Upvote</button>
+                            <div id="serD">upda</div>
                             <div style="font-size: 5em; ">
                             </div>
                         </div>
@@ -76,9 +80,9 @@
 
             <div class="col">
                 <div class="playerTwo" style="font-size: 5vw;">
-                    <h1>Player One</h1>
+                    <h1>Player Two</h1>
                     <img src="images/p2female.svg" alt="">
-                    <div id="pPick"></div>
+                    <div></div>
                     <div class="progress">
                         <div class="bar shadow WhiteStripes"></div>
                     </div>
@@ -100,9 +104,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-    <script src="javascripts/bars.js"></script>
+    <!-- <script src="javascripts/bars.js"></script> -->
     <script>
         const button = document.getElementById('post-btn');
 
@@ -123,7 +136,12 @@
 
 
     <script src="javascripts/socket.io.js"></script>
+
     <script>
+        const bars = document.querySelectorAll('.bar');
+        const progress = document.querySelectorAll('.progress');
+
+
         function mapValue(val, in_min, in_max, out_min, out_max) {
             return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
         }
@@ -132,31 +150,36 @@
             return value | 0;
         }
 
-
-
         var socket = io();
 
         var serData = document.getElementById('serD');
         var playerOne = document.getElementById('p1Pick')
         var playerTwo = document.getElementById('p2Pick')
-        var form = document.getElementById('form');
-        var input = document.getElementById('input');
 
 
         socket.on('serialD', function(msg) {
-
+            // console.log("dupa");
             var a = String(msg);
             var c = a.split(':');
             var one = c[0];
             var two = c[1];
+
+
+
             oneMapped = mapValue(one, 0, 1023, 0, 100);
             twoMapped = mapValue(two, 0, 1023, 0, 100);
             oneMapped = float2int(oneMapped)
             twoMapped = float2int(twoMapped)
 
-            playerTwo.textContent = oneMapped;
-            playerOne.textContent = twoMapped;
+
+            bars[0].style.height = `${twoMapped}%`;
+            bars[1].style.height = `${100 - twoMapped}%`;
+
+
+            // playerTwo.textContent = oneMapped;
+            // playerOne.textContent = twoMapped;
             serData.textContent = msg;
+            // console.log(msg);
 
         });
     </script>
