@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Bitter");
-
 * {
     /* border: 1px solid red; */
 }
@@ -38,11 +37,10 @@ body {
 }
 
 .progress {
-    
     display: inline-block;
-    width: 40px;
-    height: 360px;
-    margin-top: 0%;
+    width: 2.1vw;
+    height: 35vh;
+    /* margin-top: 0%; */
     border-radius: 90px;
     background: rgb(80, 147, 147);
     -webkit-transform: rotate(180deg);
@@ -50,7 +48,6 @@ body {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
-
 }
 
 .bar {
@@ -60,7 +57,6 @@ body {
     transition: height;
     transition-duration: 1s;
     transition-timing-function: cubic-bezier(0.36, 0.55, 0.63, 0.48);
-
 }
 
 .mobile {
@@ -72,25 +68,26 @@ body {
     box-shadow: 0px 45px 50px rgba(0, 0, 0, 0.25);
 }
 
-.GreenStripes{
+.GreenStripes {
     background-color: #69b0b2;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23509393' fill-opacity='0.94' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
-.WhiteStripes
-{
+
+.WhiteStripes {
     background-color: #aaaaaa;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
-.BlackStripes
-{
+
+.BlackStripes {
     background-color: #3a3a3a;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23202020' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
-.OrangeStripes
-{
+
+.OrangeStripes {
     background-color: #d08362;
-background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a86047' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a86047' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
+
 @media screen and (max-width: 500px) {
     .progress {
         width: calc(100vw * 0.7);
@@ -98,20 +95,17 @@ background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox=
         height: 40px;
         margin: 25px;
         -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg); 
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
     }
-
     .github {
         margin: 20px;
     }
-
     .desktop {
         display: none;
     }
-
     .mobile {
         display: inherit;
     }

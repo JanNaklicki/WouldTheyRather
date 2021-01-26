@@ -155,7 +155,6 @@
 
         window.addEventListener('load', async _ => {
             try {
-                console.log('dupa');
                 const response = await fetch('http://127.0.0.1:3000/serial', {
                     method: 'post',
                     body: {
@@ -175,7 +174,6 @@
     <script>
         const bars = document.querySelectorAll('.bar');
         const progress = document.querySelectorAll('.progress');
-
 
 
         function mapValue(val, in_min, in_max, out_min, out_max) {
@@ -199,12 +197,8 @@
             var c = a.split(':');
             var one = c[0];
             var two = c[1];
-            var three = c[2];
-            var four = c[3];
-            var five = c[4];
-            var six = c[5];
 
-            console.log('dupa');
+
 
             oneMapped = mapValue(one, 0, 1023, 0, 100);
             twoMapped = mapValue(two, 0, 1023, 0, 100);
@@ -215,8 +209,7 @@
             bars[0].style.height = `${twoMapped}%`;
             bars[1].style.height = `${100 - twoMapped}%`;
 
-            bars[4].style.height = `${oneMapped}%`;
-            bars[5].style.height = `${100 - oneMapped}%`;
+
             // playerTwo.textContent = oneMapped;
             // playerOne.textContent = twoMapped;
             // serData.textContent = msg;
