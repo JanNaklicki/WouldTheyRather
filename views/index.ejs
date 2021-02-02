@@ -13,8 +13,6 @@
     <title>Would They Rather</title>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-
-
 </head>
 
 <body>
@@ -65,6 +63,7 @@
                                 have a job that they love and make no money
                             </p>
                             <h2 style="text-align: center; font-size: 3vw; font-weight: 700; font-style: italic;">or</h2>
+                            <button id="post-btn">asd</button>
                             <p class="par2 ">
                                 have a job that they hate and make loads of money
                             </p>
@@ -130,70 +129,33 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-    <!-- <script src="javascripts/bars.js"></script> -->
-    <script>
-        const button = document.getElementById('post-btn');
-
-        window.addEventListener('load', async _ => {
-            try {
-                console.log('dupa');
-                const response = await fetch('http://127.0.0.1:3000/serial', {
-                    method: 'post',
-                    body: {
-
-                    }
-                });
-                console.log('Completed!', response);
-            } catch (err) {
-                console.error(`Error: ${err}`);
-            }
-        });
-    </script>
-
-
     <script src="javascripts/socket.io.js"></script>
+    <script src="javascripts/helpers.js"></script>
 
     <script>
-        const bars = document.querySelectorAll('.bar');
-        const progress = document.querySelectorAll('.progress');
-
-
-
-        function mapValue(val, in_min, in_max, out_min, out_max) {
-            return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-        }
-
-        function float2int(value) {
-            return value | 0;
-        }
-
         var socket = io();
 
-        // var serData = document.getElementById('serD');
+        const button = document.getElementById('post-btn');
+        const bars = document.querySelectorAll('.bar');
+        const progress = document.querySelectorAll('.progress');
         var playerOne = document.getElementById('p1Pick')
         var playerTwo = document.getElementById('p2Pick')
 
 
+        // window.addEventListener('load', async _ => {});
+        // var serData = document.getElementById('serD');
+
+
+
+        button.addEventListener('click', function() {
+            socket.emit('test')
+        })
+
+
         socket.on('serialD', function(msg) {
+
             // console.log("dupa");
             var a = String(msg);
             var c = a.split(':');
@@ -204,7 +166,7 @@
             var five = c[4];
             var six = c[5];
 
-            console.log('dupa');
+
 
             oneMapped = mapValue(one, 0, 1023, 0, 100);
             twoMapped = mapValue(two, 0, 1023, 0, 100);
@@ -217,11 +179,6 @@
 
             bars[4].style.height = `${oneMapped}%`;
             bars[5].style.height = `${100 - oneMapped}%`;
-            // playerTwo.textContent = oneMapped;
-            // playerOne.textContent = twoMapped;
-            // serData.textContent = msg;
-            // console.log(msg);
-
         });
     </script>
 
