@@ -1,30 +1,43 @@
-const SerialPort = require('serialport')
-const express = require('express');
 require('./loaders/mongoose')
-
-
-
+const express = require('express');
 const app = express()
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const Readline = SerialPort.parsers.Readline
-const serialport = new SerialPort('COM5')
-const parser = new Readline();
+const questRouter = require('./routes/questions')
+var bodyParser = require('body-parser')
 
+var jsonParser = bodyParser.json()
+    //MODELS
+
+const Question = require('./models/Question')
+
+
+//APP
 
 app.use(express.static('public'))
+app.use('/questions', questRouter)
+app.use(bodyParser.json())
 app.set('view engine', 'ejs');
 
 
 
+// SERIAL PORT
+const serialport = require('./loaders/serialPort').serialport
+const parser = require('./loaders/serialPort').parser
 serialport.pipe(parser);
 
 
 
 parser.on('data', function(data) {
     io.emit('serialD', data);
-    console.log(data);
 });
+
+
+
+
+
+// ROUTES
+
 
 app.get('/', function(req, res) {
 
@@ -32,21 +45,12 @@ app.get('/', function(req, res) {
 })
 
 app.get('/duel', function(req, res) {
-    res.render('duel', {});
+    res.render('duel');
 });
 
 
 
-// app.post('/serial', async(req, res) => {})
-
-// app.get('/test', function(req, res) {
-//     res.render('test', {
-
-//     });
-// })
-
-
-
+// SOCKET 
 
 io.on('connection', (socket) => {
     console.log('a user connected');
@@ -55,6 +59,7 @@ io.on('connection', (socket) => {
 
     socket.on('test', () => {
         console.log('dupa');
+
     })
 
     socket.on('disconnect', () => {
@@ -64,10 +69,7 @@ io.on('connection', (socket) => {
 });
 
 
-
-
-
-
+//CONNECT
 http.listen(3000, () => {
     console.log('listening on *:3000');
 });

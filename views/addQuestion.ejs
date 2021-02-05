@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://127.0.0.1:3000/stylesheets/bars.css">
+    <link rel="stylesheet" href="http://127.0.0.1:3000/stylesheets/style.css">
+    <link rel="stylesheet" href="http://127.0.0.1:3000/stylesheets/buttons.css">
+
+    <title>Would They Rather</title>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col playerOne">
+                <div class="row" style="background-color: #69b0b2; height: 50vh;">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col">
+                <div class="infoPanel">
+
+
+                    <div class="row p-4" style="background-color: #e1e1e1; height: 100vh;">
+                        <div class="col ">
+                            <h1>Add question to database</h1>
+                            <form action="http://127.0.0.1:3000/questions/addQuestion" method="POST">
+                                <div class="form-group m-3">
+                                    <label class="m-2">First Question</label>
+                                    <input type="text" class="form-control" name="questionOne">
+                                </div>
+                                <div class="form-group m-3">
+                                    <label class="m-2">Second Question</label>
+                                    <input type="text" class="form-control" name="questionTwo">
+                                </div>
+                                <div class="form-group m-3">
+                                    <label class="m-2">Value of first Question</label>
+                                    <input type="text" class="form-control" name="valueOne">
+                                </div>
+                                <div class="form-group m-3">
+                                    <label class="m-2">Value of second Question</label>
+                                    <input type="text" class="form-control" name="valueTwo">
+                                </div>
+                                <button type="submit" class="btn-lg btn-primary">Submit</button>
+                            </form>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col playerTwo">
+                <div class="row" style="background-color: #d08362; height: 50vh;">
+
+                </div>
+                <div class="row align-content-center" style="background-color: #d08362;height: 50vh;">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
