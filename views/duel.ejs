@@ -59,12 +59,12 @@
                             <h1>
                                 Would they <br> rather...
                             </h1>
-                            <p class="par1">
+                            <p id="par1">
 
                             </p>
                             <h2 style="text-align: center; font-size: 3vw; font-weight: 700; font-style: italic;">or</h2>
                             <button id="post-btn">asd</button>
-                            <p class="par2 ">
+                            <p id="par2">
                                 have a job that they hate and make loads of money
                             </p>
 
@@ -133,6 +133,7 @@
 
     <script src="javascripts/socket.io.js"></script>
     <script src="javascripts/helpers.js"></script>
+    <script src="javascripts/compareValues.js"></script>
 
     <script>
         var socket = io();
@@ -168,7 +169,7 @@
             var five = c[4];
             var six = c[5];
 
-
+            console.log('dupa');
 
             oneMapped = mapValue(one, 0, 1023, 0, 100);
             twoMapped = mapValue(two, 0, 1023, 0, 100);

@@ -4,10 +4,12 @@ const Question = require('../models/Question')
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 
-router.post('/', async(req, res) => {
+router.get('/:id', async(req, res) => {
     try {
         const questions = await Question.find();
-        res.json(questions)
+
+        res.json(questions[req.params.id])
+
     } catch (err) {
         res.json({ message: err })
     }
@@ -26,7 +28,7 @@ router.post('/addQuestion', jsonParser, async function(req, res) {
     });
     try {
         const savedQuestion = await question.save();
-        res.json()
+        res.json(savedQuestion)
     } catch (err) {
         console.log(err);
     }
