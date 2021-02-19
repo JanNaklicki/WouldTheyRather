@@ -29,6 +29,7 @@ serialport.pipe(parser);
 
 
 parser.on('data', function(data) {
+    console.log(data);
     io.emit('serialD', data);
 });
 
@@ -58,8 +59,21 @@ io.on('connection', (socket) => {
 
 
     socket.on('test', () => {
-        console.log('dupa');
 
+    })
+    socket.on('tazePlayerOne', (data) => {
+        var a = '0:' + data;
+
+        serialport.write(a);
+        console.log('hahaha porażony 1');
+    })
+
+    socket.on('tazePlayerTwo', () => {
+        var a = '1:' + data;
+        serialport.write(a, () => {
+            console.log('wysłano 1');
+        });
+        console.log('hahaha porażony 2');
     })
 
     socket.on('disconnect', () => {

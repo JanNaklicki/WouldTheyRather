@@ -63,11 +63,11 @@
 
                             </p>
                             <h2 style="text-align: center; font-size: 3vw; font-weight: 700; font-style: italic;">or</h2>
-                            <button id="post-btn">asd</button>
+
                             <p id="par2">
                                 have a job that they hate and make loads of money
                             </p>
-
+                            <button onclick="logging()">tes</button>
                         </div>
                     </div>
                     <div class="row align-content-center" style="background-color: #e1e1e1;height: 50vh;">
@@ -129,16 +129,17 @@
 
 
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
     <script src="javascripts/socket.io.js"></script>
     <script src="javascripts/helpers.js"></script>
-    <script src="javascripts/compareValues.js"></script>
+
 
     <script>
         var socket = io();
 
-        const button = document.getElementById('post-btn');
+
         const bars = document.querySelectorAll('.bar');
         const progress = document.querySelectorAll('.progress');
         var playerOne = document.getElementById('p1Pick')
@@ -150,18 +151,14 @@
 
 
 
-        button.addEventListener('click', function() {
-            socket.emit('test')
 
-
-        })
-
-
+        var a = "";
+        var c = "";
         socket.on('serialD', function(msg) {
 
             // console.log("dupa");
-            var a = String(msg);
-            var c = a.split(':');
+            a = String(msg);
+            c = a.split(':');
             var one = c[0];
             var two = c[1];
             var three = c[2];
@@ -169,7 +166,7 @@
             var five = c[4];
             var six = c[5];
 
-            console.log('dupa');
+            // console.log('dupa');
 
             oneMapped = mapValue(one, 0, 1023, 0, 100);
             twoMapped = mapValue(two, 0, 1023, 0, 100);
@@ -184,7 +181,7 @@
             bars[5].style.height = `${100 - oneMapped}%`;
         });
     </script>
-
+    <script src="javascripts/compareValues.js"></script>
 
 </body>
 

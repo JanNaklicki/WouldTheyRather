@@ -43,11 +43,15 @@ body {
 }
 
 #par1 {
+    padding: 4%;
     color: #509393;
+    font-size: 2vw;
 }
 
 #par2 {
+    padding: 4%;
     color: #a86047;
+    font-size: 2vw;
 }
 
 .playerTwo {
