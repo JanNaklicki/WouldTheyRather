@@ -1,7 +1,9 @@
 var questionsDBres = ""
 var i = 0;
+var butonNext = document.getElementById('next');
+var submitNext = document.getElementById('submit');
 
-window.setInterval(() => {
+function nextQuestion() {
     i = i + 1;
     url = 'http://127.0.0.1:3000/questions/' + i;
     fetch(url, {
@@ -10,29 +12,45 @@ window.setInterval(() => {
         questionsDBres = data;
 
     }).then(function() {
-
-
         document.getElementById('par1').innerHTML = questionsDBres.questionOne;
         document.getElementById('par2').innerHTML = questionsDBres.questionTwo;
-    })
-}, 20000)
 
-var test = document.getElementById('tes');
+    })
+}
+
+
 
 function logging() {
 
-    console.log('gracz 1')
-    console.log(Math.abs(questionsDBres.valueOne - oneMapped))
-    console.log('gracz 2')
-    console.log(Math.abs(questionsDBres.valueOne - twoMapped))
     if (Math.abs(oneMapped - questionsDBres.valueOne) < Math.abs(twoMapped - questionsDBres.valueOne)) {
 
-        console.log(Math.abs(oneMapped - questionsDBres.valueOne));
+
         socket.emit('tazePlayerOne', "20");
+        document.getElementById("demo").innerHTML = "PLAYER ONE TAZED!";
 
     } else {
         // console.log(Math.abs(c[4] - questionsDBres.valueOne));
-        socket.emit('tazePlayerTwo');
+        socket.emit('tazePlayerTwo', "20");
+        document.getElementById("demo").innerHTML = "PLAYER TWO TAZED!";
+
     }
-    console.log(questionsDBres.valueOne)
+    bars[2].style.height = `${questionsDBres.valueOne}%`
+
+    bars[3].style.height = `${questionsDBres.valueTwo}%`
+
 }
+
+butonNext.addEventListener("click", nextQuestion())
+
+
+
+
+
+
+
+
+
+
+
+
+var test = document.getElementById('tes');

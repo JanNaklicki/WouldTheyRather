@@ -68,7 +68,7 @@ io.on('connection', (socket) => {
         console.log('hahaha porażony 1');
     })
 
-    socket.on('tazePlayerTwo', () => {
+    socket.on('tazePlayerTwo', (data) => {
         var a = '1:' + data;
         serialport.write(a, () => {
             console.log('wysłano 1');
