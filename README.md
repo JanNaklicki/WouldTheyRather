@@ -27,3 +27,10 @@ In this project I used relay with only two inputs. Here you can see how to conne
 In second photo you can see endings of blue and white cables. These are the parts that are connected to players 
 ![image](https://user-images.githubusercontent.com/49452909/117894304-5edbf000-b2bc-11eb-98ed-9274d5b4cf71.png)
 
+## Gameplay
+Go to the games directory open console and use `node server.js` to start game. If you prepare everything the right way you will be greated with server adres. Copy it and paste it in web browser. You should see menu and when you hit play, game begins. The last thing to do is have fun.  
+  
+*Example question*
+![image](https://user-images.githubusercontent.com/49452909/117896726-82556980-b2c1-11eb-9877-b9b316ea2bca.png)
+
+
