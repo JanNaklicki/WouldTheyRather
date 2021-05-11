@@ -4,7 +4,7 @@ This project was created for no specific reason. This simple game is based on th
 ## Game basics
 
 Before playing audience have to answer previously created form with questions. Two actual players have to guess the percentage of people who chose a specific answer. The thing that makes this game more interesting is the fact that players are connected to a small tens unit. The player that is further away from the right answers ratio is getting tazed.  
-#How to use this project
+## How to use this project
 ###### Software part
 1. Install [MongoDB](https://www.mongodb.com/)
 2. Create a collection and edit a path to it. 
