@@ -30,7 +30,8 @@ In the second photo you can see endings of blue and white cables. These are the 
 ## Gameplay
 Go to the games directory open console and use node server.js to start the game. If you prepare everything the right way you will be greeted with a server address(127.0.0.1:3000). Copy it and paste it into a web browser. You should see the menu and when you hit play, the game begins. The last thing to do is have fun.
   
-*Example question*
+*Example gameplay*
 ![image](https://user-images.githubusercontent.com/49452909/117896726-82556980-b2c1-11eb-9877-b9b316ea2bca.png)
+![img2](https://user-images.githubusercontent.com/49452909/118229635-a1542700-b48c-11eb-8df9-12c7249de4a0.jpg)
 
 
